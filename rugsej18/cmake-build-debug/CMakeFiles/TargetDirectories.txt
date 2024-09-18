@@ -1,0 +1,3 @@
+D:/uni/strukturinis programavimas/rugsej18/cmake-build-debug/CMakeFiles/rugsej18.dir
+D:/uni/strukturinis programavimas/rugsej18/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/uni/strukturinis programavimas/rugsej18/cmake-build-debug/CMakeFiles/rebuild_cache.dir

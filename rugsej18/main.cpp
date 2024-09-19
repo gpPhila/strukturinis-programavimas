@@ -17,20 +17,20 @@ int main()
     */
 
     int number;
-    while (true) {
-        cout<<"Enter a number (1-2)"<<endl;
+    bool isLoop = true;
+    while (isLoop) {
+        cout<<"Enter a number (1-2): "<<endl;
         cin >> number;
         switch (number) {
-            case "1":
+            case 1:
                 cout<<"You have a banana"<<endl;
                 break;
-            case "2":
+            case 2:
                 cout<<"You have an apple"<<endl;
                 break;
             default:
+                isLoop = false;
                 cout<<"You have something else"<<endl;
-                break;
-
         }
     }
 

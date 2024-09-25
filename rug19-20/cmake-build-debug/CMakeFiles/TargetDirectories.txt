@@ -1,3 +1,3 @@
-C:/Users/s056857/Desktop/strukturinis-programavimas/rug19-20/cmake-build-debug/CMakeFiles/rug19_20.dir
-C:/Users/s056857/Desktop/strukturinis-programavimas/rug19-20/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/s056857/Desktop/strukturinis-programavimas/rug19-20/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/uni/strukturinis programavimas/strukturinis-programavimas/rug19-20/cmake-build-debug/CMakeFiles/rug19_20.dir
+D:/uni/strukturinis programavimas/strukturinis-programavimas/rug19-20/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/uni/strukturinis programavimas/strukturinis-programavimas/rug19-20/cmake-build-debug/CMakeFiles/rebuild_cache.dir

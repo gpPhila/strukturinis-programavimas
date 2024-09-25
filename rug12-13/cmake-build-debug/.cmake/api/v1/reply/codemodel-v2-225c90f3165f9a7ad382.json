@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/uni/strukturinis programavimas/rug12-13/cmake-build-debug",
-		"source" : "D:/uni/strukturinis programavimas/rug12-13"
+		"build" : "D:/uni/strukturinis programavimas/strukturinis-programavimas/rug12-13/cmake-build-debug",
+		"source" : "D:/uni/strukturinis programavimas/strukturinis-programavimas/rug12-13"
 	},
 	"version" : 
 	{

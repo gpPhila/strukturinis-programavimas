@@ -70,12 +70,13 @@ int main() {
 */
 //-------------------------------Trecias pratimas--------------------------------
 int randomNum() {
+    srand(time(nullptr));
     int randomNum = rand() % 100;
     return randomNum;
 }
 
 int main() {
-    cout<<"Random number: "<<randomNum<<endl;
+    cout<<"Random number: "<<randomNum()<<endl;
  return 0;
 }
 

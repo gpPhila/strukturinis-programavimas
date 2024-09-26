@@ -1,0 +1,3 @@
+C:/Users/s056857/Desktop/strukturinis-programavimas/rugsejo26/cmake-build-debug/CMakeFiles/rugsejo26.dir
+C:/Users/s056857/Desktop/strukturinis-programavimas/rugsejo26/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/s056857/Desktop/strukturinis-programavimas/rugsejo26/cmake-build-debug/CMakeFiles/rebuild_cache.dir

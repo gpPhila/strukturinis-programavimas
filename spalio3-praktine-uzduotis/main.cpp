@@ -82,6 +82,7 @@ int main() {
             break;
             case 4:
                 cout<<"Jus isejote is programos."<<endl;
+            break;
             default:
             cout<<"Tokio pasirinkimo nera, bandykite dar karta."<<endl;
         }

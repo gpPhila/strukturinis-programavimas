@@ -13,56 +13,156 @@ double rupijasBendras = 88.8260;
 double rupijasPirkti = 85.2614;
 double rupijasParduoti = 92.8334;
 
-void valiutuPalyginimas (int operacija = 0) {
+void valiutuPalyginimas () {
+    int operacija = 0;
     double kiekisPrad;
     double kiekisGal;
-    cout<<"Pasirinkite valiutos palyginimo (kurso tikrinimo) opcija:"<<endl;
-    cout<<"1. EUR to GBP (Didziosios Britanijos svaras)"<<endl;
-    cout<<"2. EUR to USD (Jungtiniu Amerikos Valstiju doleris)"<<endl;
-    cout<<"3. EUR to INR (Indijos rupijas)"<<endl;
-    cout<<"4. GBP (Didziosios Britanijos svaras) to EUR"<<endl;
-    cout<<"5. USD (Jungtiniu Amerikos Valstiju doleris) to EUR"<<endl;
-    cout<<"6. INR (Indijos rupijas) to EUR"<<endl;
-    cin>>operacija;
-    cout<<"Iveskite valiutos kieki, kuri norite palyginti: "<<endl;
-    cin>>kiekisPrad;
+    while (operacija < 1 || operacija > 6) {
+        cout<<"Pasirinkite valiutos palyginimo (kurso tikrinimo) opcija:"<<endl;
+        cout<<"1. EUR to GBP (Didziosios Britanijos svaras)"<<endl;
+        cout<<"2. EUR to USD (Jungtiniu Amerikos Valstiju doleris)"<<endl;
+        cout<<"3. EUR to INR (Indijos rupijas)"<<endl;
+        cout<<"4. GBP (Didziosios Britanijos svaras) to EUR"<<endl;
+        cout<<"5. USD (Jungtiniu Amerikos Valstiju doleris) to EUR"<<endl;
+        cout<<"6. INR (Indijos rupijas) to EUR"<<endl;
+        cin>>operacija;
+        if (operacija < 1 || operacija > 6) {
+            cout<<"Tokios opcijos nera, bandykite dar karta."<<endl;
+        }
+    }
+        cout<<"Iveskite valiutos kieki, kuri norite palyginti: "<<endl;
+        cin>>kiekisPrad;
 
-    if (operacija == 1) {
-        kiekisGal = kiekisPrad * svarasBendras;
+    switch (operacija) {
+        case 1:
+            kiekisGal = kiekisPrad * svarasBendras;
         cout<<kiekisPrad<<" EUR (euru) = "<<kiekisGal<<" GBP (Didziosios Britanijos svaru)"<<endl;
-    } else if (operacija == 2) {
-        kiekisGal = kiekisPrad * dolerisBendras;
+        break;
+        case 2:
+            kiekisGal = kiekisPrad * dolerisBendras;
         cout<<kiekisPrad<<" EUR (euru) = "<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu)"<<endl;
-    } else if (operacija == 3) {
-        kiekisGal = kiekisPrad * rupijasBendras;
+        break;
+        case 3:
+            kiekisGal = kiekisPrad * rupijasBendras;
         cout<<kiekisPrad<<" EUR (euru) = "<<kiekisGal<<" INR (Indijos rupiju)"<<endl;
-    } else if (operacija == 4) {
-        kiekisGal = kiekisPrad / svarasBendras;
+        break;
+        case 4:
+            kiekisGal = kiekisPrad / svarasBendras;
         cout<<kiekisPrad<<" GBP (Didziosios Britanijos svaru) = "<<kiekisGal<<" EUR (euru)"<<endl;
-    } else if (operacija == 5) {
-        kiekisGal = kiekisPrad / dolerisBendras;
+        break;
+        case 5:
+            kiekisGal = kiekisPrad / dolerisBendras;
         cout<<kiekisPrad<<" USD (Jungtiniu Amerikos Valstiju doleriu) = "<<kiekisGal<<" EUR (euru)"<<endl;
-    } else if (operacija == 6) {
-        kiekisGal = kiekisPrad / rupijasBendras;
+        break;
+        case 6:
+            kiekisGal = kiekisPrad / rupijasBendras;
         cout<<kiekisPrad<<" INR (Indijos rupiju) = "<<kiekisGal<<" EUR (euru)"<<endl;
-    } else {
-        cout<<"Ivyko klaida, bandykite dar karta."<<endl;
+        break;
+        default:
+            cout<<"Tokio pasirinkimo nera, bandykite dar karta."<<endl;
     }
 }
+//ar kalbant apie pirkimus reikia palikti tik 3 opcijas kur bus perkami gbp usd ir inr (ty vartotojas negali pirkti euru ar gali)?
 
-void valiutuPirkimas (int operacija = 0) {
+void valiutuPirkimas () {
+    int operacija = 0;
     double kiekisPrad;
     double kiekisGal;
-    cout<<"Pasirinkite valiutos konvertavimo (pirkimo) opcija:"<<endl;
-    cout<<"1. EUR to GBP (Didziosios Britanijos svaras)"<<endl;
-    cout<<"2. EUR to USD (Jungtiniu Amerikos Valstiju doleris)"<<endl;
-    cout<<"3. EUR to INR (Indijos rupijas)"<<endl;
-    cout<<"4. GBP (Didziosios Britanijos svaras) to EUR"<<endl;
-    cout<<"5. USD (Jungtiniu Amerikos Valstiju doleris) to EUR"<<endl;
-    cout<<"6. INR (Indijos rupijas) to EUR"<<endl;
-    cin>>operacija;
+    while (operacija < 1 || operacija > 6) {
+        cout<<"Pasirinkite valiutos konvertavimo (pirkimo) opcija:"<<endl;
+        cout<<"1. EUR to GBP (Didziosios Britanijos svaras)"<<endl;
+        cout<<"2. EUR to USD (Jungtiniu Amerikos Valstiju doleris)"<<endl;
+        cout<<"3. EUR to INR (Indijos rupijas)"<<endl;
+        cout<<"4. GBP (Didziosios Britanijos svaras) to EUR"<<endl;
+        cout<<"5. USD (Jungtiniu Amerikos Valstiju doleris) to EUR"<<endl;
+        cout<<"6. INR (Indijos rupijas) to EUR"<<endl;
+        cin>>operacija;
+        if (operacija < 1 || operacija > 6) {
+            cout<<"Tokios opcijos nera, bandykite dar karta.";
+        }
+    }
     cout<<"Iveskite valiutos kieki, kuri norite konvertuoti: "<<endl;
     cin>>kiekisPrad;
+
+    switch (operacija) {
+        case 1:
+            kiekisGal = kiekisPrad * svarasPirkti;
+        cout<<"Jus nupirkote "<<kiekisGal<<" GBP (Didziosios Britanijos svaru.)"<<endl;
+        break;
+        case 2:
+            kiekisGal = kiekisPrad * dolerisPirkti;
+        cout<<"Jus nupirkote "<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu.)"<<endl;
+        break;
+        case 3:
+            kiekisGal = kiekisPrad * rupijasPirkti;
+        cout<<"Jus nupirkote "<<kiekisGal<<" INR (Indijos rupiju.)"<<endl;
+        break;
+        case 4:
+            kiekisGal = kiekisPrad / svarasPirkti;
+        cout<<"Jus nupirkote "<<kiekisGal<<" euru."<<endl;
+        break;
+        case 5:
+            kiekisGal = kiekisPrad / dolerisPirkti;
+        cout<<"Jus nupirkote "<<kiekisGal<<" euru.)"<<endl;
+        break;
+        case 6:
+            kiekisGal = kiekisPrad / rupijasPirkti;
+        cout<<"Jus nupirkote "<<kiekisGal<<" euru.)"<<endl;
+        break;
+        default:
+            cout<<"Tokios operacijos nera, bandykite dar karta.";
+    }
+}
+//ar kalbant apie pardavimus reikia palikti tik 3 opcijas kur bus parduodami gbp usd ir inr (ty vartotojas gauna eur)?
+void valiutuPardavimas () {
+    int operacija = 0;
+    double kiekisPrad;
+    double kiekisGal;
+    while (operacija < 1 || operacija > 6) {
+        cout<<"Pasirinkite valiutos pardavimo opcija:"<<endl;
+        cout<<"1. EUR to GBP (Didziosios Britanijos svaras)"<<endl;
+        cout<<"2. EUR to USD (Jungtiniu Amerikos Valstiju doleris)"<<endl;
+        cout<<"3. EUR to INR (Indijos rupijas)"<<endl;
+        cout<<"4. GBP (Didziosios Britanijos svaras) to EUR"<<endl;
+        cout<<"5. USD (Jungtiniu Amerikos Valstiju doleris) to EUR"<<endl;
+        cout<<"6. INR (Indijos rupijas) to EUR"<<endl;
+        cin>>operacija;
+        if (operacija < 1 || operacija > 6) {
+            cout<<"Tokios opcijos nera, bandykite dar karta.";
+        }
+    }
+    cout<<"Iveskite valiutos kieki, kuri norite parduoti: "<<endl;
+    cin>>kiekisPrad;
+
+    switch (operacija) {
+        case 1:
+            kiekisGal = kiekisPrad * svarasParduoti;
+        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<kiekisGal<<" GBP (Didziosios Britanijos svaru.)"<<endl;
+        break;
+        case 2:
+            kiekisGal = kiekisPrad * dolerisParduoti;
+        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu.)"<<endl;
+        break;
+        case 3:
+            kiekisGal = kiekisPrad * rupijasParduoti;
+        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<kiekisGal<<" INR (Indijos rupiju.)"<<endl;
+        break;
+        case 4:
+            kiekisGal = kiekisPrad / svarasParduoti;
+        cout<<"Jus pardavete "<<kiekisPrad<<" GBP (Didziosios Britanijos svaru) uz "<<kiekisGal<<" euru."<<endl;
+        break;
+        case 5:
+            kiekisGal = kiekisPrad / dolerisParduoti;
+        cout<<"Jus pardavete "<<kiekisPrad<<" USD (Jungtiniu Amerikos Valstiju doleriu) uz "<<kiekisGal<<" euru."<<endl;
+        break;
+        case 6:
+            kiekisGal = kiekisPrad / rupijasParduoti;
+        cout<<"Jus pardavete "<<kiekisPrad<<" INR (Indijos rupiju) uz "<<kiekisGal<<" euru."<<endl;
+        break;
+        default:
+            cout<<"Tokios operacijos nera, bandykite dar karta.";
+    }
+
 }
 
 int main() {
@@ -78,7 +178,13 @@ int main() {
 
         switch (operacija) {
             case 1:
-                valiutuPalyginimas(operacija);
+                valiutuPalyginimas();
+            break;
+            case 2:
+                valiutuPirkimas();
+            break;
+            case 3:
+                valiutuPardavimas();
             break;
             case 4:
                 cout<<"Jus isejote is programos."<<endl;

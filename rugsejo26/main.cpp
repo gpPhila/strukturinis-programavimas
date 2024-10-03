@@ -69,6 +69,7 @@ int main() {
 }
 */
 //-------------------------------Trecias pratimas--------------------------------
+/*
 int randomNum() {
     srand(time(nullptr));
     int randomNum = rand() % 100;
@@ -76,8 +77,65 @@ int randomNum() {
 }
 
 int main() {
-    cout<<"Random number: "<<randomNum()<<endl;
+
+    for (int i=0; i < 10; i++) {
+        cout<<"Random number: "<<randomNum()<<endl;
+    }
+
  return 0;
 }
+*/
+//---------------------Ketvirtas pratimas------------------------------------------
+/*
+int suma(int firstN, int secondN){
+    return firstN + secondN;
+}
+int skirtumas(int firstN, int secondN){
+    return firstN - secondN;
+}
+int sandauga(int firstN, int secondN){
+    return firstN * secondN;
+}
+int dalmuo(int firstN, int secondN){
+    return firstN / secondN;
+}
+int main() {
+    int firstN, secondN;
+    cout<<"Iveskite du skaicius: "<<endl;
+    cin>> firstN >> secondN;
 
+    suma(firstN, secondN);
+    cout<<"Suma yra "<<suma(firstN, secondN)<<endl;
 
+    skirtumas(firstN, secondN);
+    cout<<"Skirtumas yra "<<skirtumas(firstN, secondN)<<endl;
+
+    suma(firstN, secondN);
+    cout<<"Sandauga yra "<<sandauga(firstN, secondN)<<endl;
+
+    suma(firstN, secondN);
+    cout<<"Dalmuo yra "<<dalmuo(firstN, secondN)<<endl;
+
+return 0;
+}
+*/
+
+//------------------------------Penktas pratimas--------------------------------------
+
+void ats(int num1, int num2) {
+    if (num1 > num2) {
+        cout<<"Didesnis skaicius yra "<<num1<<endl;
+    } else if (num2 > num1) {
+        cout<<"Didesnis skaicius yra "<<num2<<endl;
+    } else {
+       cout<<"Skaiciai yra lygus"<<endl;
+    }
+}
+
+int main() {
+    ats(3, 4);
+    ats(14, 6);
+    ats(7, 7);
+
+return 0;
+}

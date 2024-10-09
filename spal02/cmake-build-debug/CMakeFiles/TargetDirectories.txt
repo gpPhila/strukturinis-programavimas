@@ -1,0 +1,3 @@
+D:/uni/strukturinis programavimas/strukturinis-programavimas/spal02/cmake-build-debug/CMakeFiles/spal02.dir
+D:/uni/strukturinis programavimas/strukturinis-programavimas/spal02/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/uni/strukturinis programavimas/strukturinis-programavimas/spal02/cmake-build-debug/CMakeFiles/rebuild_cache.dir

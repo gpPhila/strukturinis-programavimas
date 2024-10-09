@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -36,27 +37,27 @@ void valiutuPalyginimas () {
     switch (operacija) {
         case 1:
             kiekisGal = kiekisPrad * svarasBendras;
-        cout<<kiekisPrad<<" EUR (euru) = "<<kiekisGal<<" GBP (Didziosios Britanijos svaru)"<<endl;
+        cout<<kiekisPrad<<" EUR (euru) = "<<fixed <<setprecision(2)<<kiekisGal<<" GBP (Didziosios Britanijos svaru)"<<endl;
         break;
         case 2:
             kiekisGal = kiekisPrad * dolerisBendras;
-        cout<<kiekisPrad<<" EUR (euru) = "<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu)"<<endl;
+        cout<<kiekisPrad<<" EUR (euru) = "<<fixed <<setprecision(2)<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu)"<<endl;
         break;
         case 3:
             kiekisGal = kiekisPrad * rupijasBendras;
-        cout<<kiekisPrad<<" EUR (euru) = "<<kiekisGal<<" INR (Indijos rupiju)"<<endl;
+        cout<<kiekisPrad<<" EUR (euru) = "<<fixed <<setprecision(2)<<kiekisGal<<" INR (Indijos rupiju)"<<endl;
         break;
         case 4:
             kiekisGal = kiekisPrad / svarasBendras;
-        cout<<kiekisPrad<<" GBP (Didziosios Britanijos svaru) = "<<kiekisGal<<" EUR (euru)"<<endl;
+        cout<<kiekisPrad<<" GBP (Didziosios Britanijos svaru) = "<<fixed <<setprecision(2)<<kiekisGal<<" EUR (euru)"<<endl;
         break;
         case 5:
             kiekisGal = kiekisPrad / dolerisBendras;
-        cout<<kiekisPrad<<" USD (Jungtiniu Amerikos Valstiju doleriu) = "<<kiekisGal<<" EUR (euru)"<<endl;
+        cout<<kiekisPrad<<" USD (Jungtiniu Amerikos Valstiju doleriu) = "<<fixed <<setprecision(2)<<kiekisGal<<" EUR (euru)"<<endl;
         break;
         case 6:
             kiekisGal = kiekisPrad / rupijasBendras;
-        cout<<kiekisPrad<<" INR (Indijos rupiju) = "<<kiekisGal<<" EUR (euru)"<<endl;
+        cout<<kiekisPrad<<" INR (Indijos rupiju) = "<<fixed <<setprecision(2)<<kiekisGal<<" EUR (euru)"<<endl;
         break;
         default:
             cout<<"Tokio pasirinkimo nera, bandykite dar karta."<<endl;
@@ -87,27 +88,27 @@ void valiutuPirkimas () {
     switch (operacija) {
         case 1:
             kiekisGal = kiekisPrad * svarasPirkti;
-        cout<<"Jus nupirkote "<<kiekisGal<<" GBP (Didziosios Britanijos svaru.)"<<endl;
+        cout<<"Jus nupirkote "<<fixed <<setprecision(2)<<kiekisGal<<" GBP (Didziosios Britanijos svaru.)"<<endl;
         break;
         case 2:
             kiekisGal = kiekisPrad * dolerisPirkti;
-        cout<<"Jus nupirkote "<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu.)"<<endl;
+        cout<<"Jus nupirkote "<<fixed <<setprecision(2)<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu.)"<<endl;
         break;
         case 3:
             kiekisGal = kiekisPrad * rupijasPirkti;
-        cout<<"Jus nupirkote "<<kiekisGal<<" INR (Indijos rupiju.)"<<endl;
+        cout<<"Jus nupirkote "<<fixed <<setprecision(2)<<kiekisGal<<" INR (Indijos rupiju.)"<<endl;
         break;
         case 4:
             kiekisGal = kiekisPrad / svarasPirkti;
-        cout<<"Jus nupirkote "<<kiekisGal<<" euru."<<endl;
+        cout<<"Jus nupirkote "<<fixed <<setprecision(2)<<kiekisGal<<" euru."<<endl;
         break;
         case 5:
             kiekisGal = kiekisPrad / dolerisPirkti;
-        cout<<"Jus nupirkote "<<kiekisGal<<" euru.)"<<endl;
+        cout<<"Jus nupirkote "<<fixed <<setprecision(2)<<kiekisGal<<" euru."<<endl;
         break;
         case 6:
             kiekisGal = kiekisPrad / rupijasPirkti;
-        cout<<"Jus nupirkote "<<kiekisGal<<" euru.)"<<endl;
+        cout<<"Jus nupirkote "<<fixed <<setprecision(2)<<kiekisGal<<" euru."<<endl;
         break;
         default:
             cout<<"Tokios operacijos nera, bandykite dar karta.";
@@ -137,27 +138,27 @@ void valiutuPardavimas () {
     switch (operacija) {
         case 1:
             kiekisGal = kiekisPrad * svarasParduoti;
-        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<kiekisGal<<" GBP (Didziosios Britanijos svaru.)"<<endl;
+        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<fixed <<setprecision(2)<<kiekisGal<<" GBP (Didziosios Britanijos svaru.)"<<endl;
         break;
         case 2:
             kiekisGal = kiekisPrad * dolerisParduoti;
-        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu.)"<<endl;
+        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<fixed <<setprecision(2)<<kiekisGal<<" USD (Jungtiniu Amerikos Valstiju doleriu.)"<<endl;
         break;
         case 3:
             kiekisGal = kiekisPrad * rupijasParduoti;
-        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<kiekisGal<<" INR (Indijos rupiju.)"<<endl;
+        cout<<"Jus pardavete "<<kiekisPrad<<" EUR (euru) uz "<<fixed <<setprecision(2)<<kiekisGal<<" INR (Indijos rupiju.)"<<endl;
         break;
         case 4:
             kiekisGal = kiekisPrad / svarasParduoti;
-        cout<<"Jus pardavete "<<kiekisPrad<<" GBP (Didziosios Britanijos svaru) uz "<<kiekisGal<<" euru."<<endl;
+        cout<<"Jus pardavete "<<kiekisPrad<<" GBP (Didziosios Britanijos svaru) uz "<<fixed <<setprecision(2)<<kiekisGal<<" euru."<<endl;
         break;
         case 5:
             kiekisGal = kiekisPrad / dolerisParduoti;
-        cout<<"Jus pardavete "<<kiekisPrad<<" USD (Jungtiniu Amerikos Valstiju doleriu) uz "<<kiekisGal<<" euru."<<endl;
+        cout<<"Jus pardavete "<<kiekisPrad<<" USD (Jungtiniu Amerikos Valstiju doleriu) uz "<<fixed <<setprecision(2)<<kiekisGal<<" euru."<<endl;
         break;
         case 6:
             kiekisGal = kiekisPrad / rupijasParduoti;
-        cout<<"Jus pardavete "<<kiekisPrad<<" INR (Indijos rupiju) uz "<<kiekisGal<<" euru."<<endl;
+        cout<<"Jus pardavete "<<kiekisPrad<<" INR (Indijos rupiju) uz "<<fixed <<setprecision(2)<<kiekisGal<<" euru."<<endl;
         break;
         default:
             cout<<"Tokios operacijos nera, bandykite dar karta.";

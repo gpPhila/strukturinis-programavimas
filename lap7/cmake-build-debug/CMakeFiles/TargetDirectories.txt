@@ -1,0 +1,3 @@
+D:/uni/strukturinis programavimas/strukturinis-programavimas/lap7/cmake-build-debug/CMakeFiles/lap7.dir
+D:/uni/strukturinis programavimas/strukturinis-programavimas/lap7/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/uni/strukturinis programavimas/strukturinis-programavimas/lap7/cmake-build-debug/CMakeFiles/rebuild_cache.dir

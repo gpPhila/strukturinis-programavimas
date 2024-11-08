@@ -1,3 +1,0 @@
-"D:\coding\CLion\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\spal24_praktine_uzduotis.dir/objects.a
-"D:\coding\CLion\CLion 2024.2.1\bin\mingw\bin\ar.exe" qc CMakeFiles\spal24_praktine_uzduotis.dir/objects.a @CMakeFiles\spal24_praktine_uzduotis.dir\objects1.rsp
-"D:\coding\CLion\CLion 2024.2.1\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\spal24_praktine_uzduotis.dir/objects.a -Wl,--no-whole-archive -o spal24_praktine_uzduotis.exe -Wl,--out-implib,libspal24_praktine_uzduotis.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\spal24_praktine_uzduotis.dir\linkLibs.rsp

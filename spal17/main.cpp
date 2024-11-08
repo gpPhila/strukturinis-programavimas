@@ -23,7 +23,7 @@ int main()
     cout<<"Masyvo spausdinimas"<<endl;
     for (int i=0; i < eilutes; i++) {
         for (int j=0; j < stulpeliai; j++) {
-            cout<<setw(3)<<masyvas [i][j]<<" "<<endl;
+            cout<<setw(3)<<masyvas [i][j]<<" ";
         }
         //kad kiekviena eilute butu is naujos
         cout << endl;
@@ -32,7 +32,7 @@ int main()
     for (int i=0; i < eilutes; i++) {
         int eilutesSuma = 0;
         for (int j=0; j < stulpeliai; j++) {
-            cout<<setw(3)<<masyvas [i][j]<<" "<<endl;
+            cout<<setw(3)<<masyvas [i][j]<<" ";
             eilutesSuma += masyvas[i][j];
         }
         //kad kiekviena eilute butu is naujos
@@ -43,11 +43,11 @@ int main()
     for (int j=0; j<stulpeliai; j++) {
         int stulpelioSuma = 0;
         for (i=0; i<eilutes; i++) {
-            cout<<setw(3)<<masyvas [i][j]<<" "<<endl;
+            cout<<setw(3)<<masyvas [i][j]<<" ";
             stulpelioSuma += masyvas[i][j];
         }
         cout << endl;
-        cout<<setw(3)<<"Stulpelio elementu suma"<<stulpelioSuma<<" "<<endl;
+        cout<<setw(3)<<"Stulpelio elementu suma "<<stulpelioSuma<<" "<<endl;
 
     }
     return 0;

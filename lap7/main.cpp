@@ -25,6 +25,18 @@ int main()
     tekstoIlgis = strlen(tekstas);
     poslinkis = 12;
 
+    for (int i = 0; i <= tekstoIlgis; i++) {
+        for (int j=0; j < sizeof(ABECELE); j++) {
+            if (toupper(tekstas[i]) == ABECELE[j]) { //toupper converts a lowercase letter to uppercase
+                rezultatoIndeksas = (j + poslinkis) % sizeof(ABECELE);
+                rezultatas[k] = ABECELE[rezultatoIndeksas];
+                k++;
+            }
+        }
+    }
+    cout<<endl;
+    cout<<rezultatas;
+
 
     return 0;
 }

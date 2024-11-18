@@ -12,6 +12,7 @@ int main()
     char uzsifruotasTekstas[50];
     char desifruotasTekstas[50];
     int poslinkis, tekstoIlgis, rezultatoIndeksas, k=0, l=0;
+    int uzsifruotoTekstoIlgis;
 
     ifstream duomenuFailas; //the object duomenuFailas will be used to read data from a file
     ifstream desifravimoFailas; //read from ANOTHER file
@@ -25,10 +26,16 @@ int main()
     tekstoIlgis = strlen(tekstas);
     poslinkis = 12;
 
-    for (int i = 0; i <= tekstoIlgis; i++) {
+    for (int i = 0; i < tekstoIlgis; i++) {
         for (int j=0; j < sizeof(ABECELE); j++) {
             if (toupper(tekstas[i]) == ABECELE[j]) { //toupper converts a lowercase letter to uppercase
                 rezultatoIndeksas = (j + poslinkis) % sizeof(ABECELE);
+                // jeigu imame raide a:
+                // 1 + 12 % 26 (skaiciuojame liekana) = 13
+                // output = M
+                // jeigu imame raide t:
+                // 20 + 12 % 26 = 6 (Indeksas bus vienu skaiciu mazenis)
+                // output = F
                 rezultatas[k] = ABECELE[rezultatoIndeksas];
                 k++;
             }
@@ -36,6 +43,30 @@ int main()
     }
     cout<<endl;
     cout<<rezultatas;
+
+    ///atvirkstini zingnis
+
+    rezultatuFailas.open("rezultatas.txt");
+    rezultatuFailas<<rezultatas;
+    rezultatuFailas.close();
+
+    desifravimoFailas.open("rezultatas.txt");
+    desifravimoFailas>>uzsifruotasTekstas;
+    desifravimoFailas.close();
+
+    uzsifruotoTekstoIlgis = strlen(uzsifruotasTekstas);
+    for(int i = 0; i < uzsifruotoTekstoIlgis; i++) {
+      for(int j = 0; j < sizeof(ABECELE); j++) {
+        if(toupper(uzsifruotasTekstas[i]) == ABECELE[j]) {
+          rezultatoIndeksas = (j - poslinkis + sizeof(ABECELE)) % sizeof(ABECELE);
+          desifruotasTekstas[l] = ABECELE[rezultatoIndeksas];
+          l++;
+        }
+      }
+    }
+
+    cout<<endl;
+    cout<<"Desifruotas tekstas: "<<desifruotasTekstas;
 
 
     return 0;

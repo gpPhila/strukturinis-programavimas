@@ -27,19 +27,29 @@ int main()
         cin>>pasirinkimas;
 
         switch (pasirinkimas) {
-            case 1: cout<<"Pasirinkimas 1:"<<endl;
-                    sifravimas1();
-                    cout <<"Ar norite desifruoti teksta?"<<endl;
-                    cout <<" 1. Taip."<<endl;
-                    cout <<" 2. Ne."<<endl;
-                    cin >> pasirinkimas1;
-                            if (pasirinkimas1 == 1) {
+            case 1: cout<<"Jus pasirinkote sifravima naudojant ABECELE."<<endl;
+                    cout<<"1. Teksto sifravimas."<<endl;
+                    cout<<"2. Uzsifruoto teksto desifravimas."<<endl;
+                    cin>>pasirinkimas1;
+                        if (pasirinkimas1 == 1) {
+                            sifravimas1();
+                        } else if (pasirinkimas1 == 2) {
                             desifravimas1();
-                            cout<<endl;
-                            }
+                        } else {
+                            cout<<"Tokio pasirinkimo nera."<<endl;
+                        }
             break;
-            case 2: cout<<"Pasirinkimas 2:"<<endl;
-                    sifravimas2();
+            case 2: cout<<"Jus pasirinkote sifravima naudojant ASCII koduote."<<endl;
+                    cout<<"1. Teksto sifravimas."<<endl;
+                    cout<<"2. Uzsifruoto teksto desifravimas."<<endl;
+                    cin>>pasirinkimas1;
+                    if (pasirinkimas1 == 1) {
+                        sifravimas2();
+                        } else if (pasirinkimas1 == 2) {
+                        desifravimas2();
+                        } else {
+                        cout<<"Tokio pasirinkimo nera."<<endl;
+                    }
             break;
             case 3: cout<<"Jus isejote. Viso gero."<<endl;
             break;
@@ -100,19 +110,31 @@ void sifravimas1() {
 
 void desifravimas1() {
     char tekstas1[50];
-    char raktas1 [50];
+    char raktas1[50];
     int uzsifruotasTekstas1[50];
     int uzsifruotasRaktas1[50];
     char rezultatas[50];
 
     int abecelesDydis = sizeof(ABECELE);
 
+    cout<<"Iveskite uzsifruota teksta:"<<endl;
+    cin>>tekstas1;
     cout<<"Iveskite rakta: "<<endl;
     cin>>raktas1;
+
     int tekstoIlgis = strlen(tekstas1);
     int raktoIlgis = strlen(raktas1);
 
-    //--------------------------- skaiciuojame raktas1 pozicija:
+    //--------------skaiciuojame uzsifruoto teksto pozicija:
+    for (int i=0; i < tekstoIlgis; i++) { // kartojamas zingsnis tiek kartu kiek turime raidziu zodyje
+        for (int j = 0; j < abecelesDydis; j++) {
+            if (toupper(tekstas1[i]) == ABECELE[j]) {
+                uzsifruotasTekstas1[i] = j;
+            }
+        }
+    }
+
+    //--------------------------- skaiciuojame rakto pozicija:
     // Desifravimas mi≡ ci−ki+n(mod n)
     // tekstas1 = uzsifruotas tekstas - raktas1 + abelecelesDydis % abecelesDydis
     for (int i=0; i < raktoIlgis; i++) { // kartojamas zingsnis tiek kartu kiek turime raidziu zodyje
@@ -125,19 +147,22 @@ void desifravimas1() {
         }
 
     }
-
+    cout<<"Desifruotas tekstas: ";
     //-------------------------------- desifravimo zingsnis:
     for (int i=0; i < tekstoIlgis; i++) { // kartojamas zingsnis tiek kartu kiek turime raidziu zodyje
         int raktoPra = i % raktoIlgis;
-        rezultatas[i] = (uzsifruotasTekstas1[i] + uzsifruotasRaktas1[raktoPra]) % abecelesDydis;
-
-
+        rezultatas[i] = (uzsifruotasTekstas1[i] - uzsifruotasRaktas1[raktoPra] + abecelesDydis) % abecelesDydis;
+        cout<<ABECELE[rezultatas[i]];
     }
-
+    cout<<endl;
 }
 
 int getASCII(char ch) {
     return static_cast<int>(ch);
+}
+
+int getOutOfASCII (int skaicius) {
+    return static_cast<char>(skaicius);
 }
 
 void sifravimas2() {
@@ -157,12 +182,41 @@ void sifravimas2() {
     //------------------------------- zemiau skaiciuojame tekstas1 pozicija (kaip skaiciu, int):
     cout<<"Uzsifruotas tekstas: ";
     for (int i=0; i < tekstoIlgis; i++) { // kartojamas zingsnis tiek kartu kiek turime raidziu zodyje
-        int tekstoASCII = getASCII(tekstas2[i]);
-        int raktoASCII = getASCII(raktas2[i % raktoIlgis]);
+        int tekstoASCII = getASCII(tolower(tekstas2[i]));
+        int raktoASCII = getASCII(tolower(raktas2[i % raktoIlgis]));
         // jeigu i=3 o raktas2 turi tik 2 simbolius, tai 3%2 => grizta prie pirmo simbolio, naudoja ji tolimesniam skaiciavimui
 
         rezultatas[i] = (tekstoASCII + raktoASCII) % 127;
         cout<<rezultatas[i];
+    }
+    cout<<endl;
+}
+
+void desifravimas2() {
+    char tekstas2[50];
+    char raktas2 [50];
+    int rezultatas [50];
+
+    cout<<"Iveskite uzsifruota teksta: "<<endl;
+    cin>>tekstas2;
+    cout<<"Iveskite slapta rakta: "<<endl;
+    cin>>raktas2;
+
+    int tekstoIlgis = strlen(tekstas2);
+    int raktoIlgis = strlen(raktas2);
+
+    // Desifravimas mi≡ ci−ki+n(mod n)
+    // tekstas1 = uzsifruotas tekstas - raktas1 + abelecelesDydis % abecelesDydis
+    //------------------------------- zemiau skaiciuojame tekstas1 pozicija (kaip skaiciu, int):
+    cout<<"Desifruotas tekstas: ";
+    for (int i=0; i < tekstoIlgis; i++) { // kartojamas zingsnis tiek kartu kiek turime raidziu zodyje
+        int tekstoASCII = getASCII(toupper(tekstas2[i]));
+        int raktoASCII = getASCII(tolower(raktas2[i % raktoIlgis]));
+        // jeigu i=3 o raktas2 turi tik 2 simbolius, tai 3%2 => grizta prie pirmo simbolio, naudoja ji tolimesniam skaiciavimui
+
+        rezultatas[i] = (tekstoASCII - raktoASCII + 127) % 127;
+        char result = getOutOfASCII(rezultatas[i]);
+        cout << result;
     }
     cout<<endl;
 }

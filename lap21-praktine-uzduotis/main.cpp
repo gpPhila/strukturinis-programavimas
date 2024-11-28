@@ -182,12 +182,14 @@ void sifravimas2() {
     //------------------------------- zemiau skaiciuojame tekstas1 pozicija (kaip skaiciu, int):
     cout<<"Uzsifruotas tekstas: ";
     for (int i=0; i < tekstoIlgis; i++) { // kartojamas zingsnis tiek kartu kiek turime raidziu zodyje
-        int tekstoASCII = getASCII(tolower(tekstas2[i]));
-        int raktoASCII = getASCII(tolower(raktas2[i % raktoIlgis]));
+        int tekstoASCII = getASCII(tekstas2[i]);
+        int raktoASCII = getASCII(raktas2[i % raktoIlgis]);
         // jeigu i=3 o raktas2 turi tik 2 simbolius, tai 3%2 => grizta prie pirmo simbolio, naudoja ji tolimesniam skaiciavimui
 
-        rezultatas[i] = (tekstoASCII + raktoASCII) % 127;
+        rezultatas[i] = (tekstoASCII + raktoASCII) % 94 + 33;
         cout<<rezultatas[i];
+        //cout<<tekstoASCII<<endl;
+        //cout<<raktoASCII<<endl;
     }
     cout<<endl;
 }
@@ -210,13 +212,18 @@ void desifravimas2() {
     //------------------------------- zemiau skaiciuojame tekstas1 pozicija (kaip skaiciu, int):
     cout<<"Desifruotas tekstas: ";
     for (int i=0; i < tekstoIlgis; i++) { // kartojamas zingsnis tiek kartu kiek turime raidziu zodyje
-        int tekstoASCII = getASCII(toupper(tekstas2[i]));
-        int raktoASCII = getASCII(tolower(raktas2[i % raktoIlgis]));
+        int tekstoASCII = getASCII(tekstas2[i]);
+        int raktoASCII = getASCII(raktas2[i % raktoIlgis]);
         // jeigu i=3 o raktas2 turi tik 2 simbolius, tai 3%2 => grizta prie pirmo simbolio, naudoja ji tolimesniam skaiciavimui
 
-        rezultatas[i] = (tekstoASCII - raktoASCII + 127) % 127;
+        rezultatas[i] = (tekstoASCII - raktoASCII + 94) % 94 + 33 + 28;
         char result = getOutOfASCII(rezultatas[i]);
         cout << result;
     }
     cout<<endl;
 }
+// (85 - 97 + x) % 94 + 33 = 49
+// (85 - 97 + x) % 94 = 16
+// (-12 + x) % 94 = 16
+
+// rezultatas[i] = (tekstoASCII - raktoASCII + 94) % 94 + 33 + 28;

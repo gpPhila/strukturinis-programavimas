@@ -1,3 +1,3 @@
-D:/coding/strukturinis-programavimas/lap21-praktine-uzduotis/cmake-build-debug/CMakeFiles/lap21_praktine_uzduotis.dir
-D:/coding/strukturinis-programavimas/lap21-praktine-uzduotis/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/coding/strukturinis-programavimas/lap21-praktine-uzduotis/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/s056857/Desktop/strukturinis-programavimas/lap21-praktine-uzduotis/cmake-build-debug/CMakeFiles/lap21_praktine_uzduotis.dir
+C:/Users/s056857/Desktop/strukturinis-programavimas/lap21-praktine-uzduotis/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/s056857/Desktop/strukturinis-programavimas/lap21-praktine-uzduotis/cmake-build-debug/CMakeFiles/rebuild_cache.dir

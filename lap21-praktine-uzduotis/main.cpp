@@ -217,6 +217,7 @@ void desifravimas2() {
         // jeigu i=3 o raktas2 turi tik 2 simbolius, tai 3%2 => grizta prie pirmo simbolio, naudoja ji tolimesniam skaiciavimui
 
         rezultatas[i] = (tekstoASCII - raktoASCII + 94) % 94 + 33 + 28;
+        //rezultatas[i] = (tekstoASCII - raktoASCII + 94) % 94 + 33;
         char result = getOutOfASCII(rezultatas[i]);
         cout << result;
     }

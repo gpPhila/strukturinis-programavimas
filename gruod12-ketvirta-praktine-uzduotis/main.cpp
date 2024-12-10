@@ -11,7 +11,7 @@ struct menuItemType {
 
 void getData(menuItemType menuList[], int&size); //prototype
 void showMenu(menuItemType menuList[], int size); //prot
-void printCheck(); //prot
+void printCheck(menuItemType menuList[], int dish[][], int maxNumberOfOrders); //prot
 
 int main()
 {
@@ -22,7 +22,7 @@ int main()
 
     int maxNumberOfOrders = 10;
     int maxNumberOfPortions = 10;
-    int dish[maxNumberOfOrders][maxNumberOfPortions] = {0};
+    int dish[maxNumberOfOrders][10] = {0};
     while (true) {
         int dishNumber, dishQuantity;
         cout<<"Iveskite pasirinkto(u) patiekalo numeri(us) ir kieki (atskirkite tarpu): "<<endl;
@@ -39,11 +39,14 @@ int main()
         }
     }
     cout<<endl;
+    /*
     for (int i = 0; i < maxNumberOfOrders; i++) {
         if (dish[i][0] > 0) {
             cout <<dish[i][0]<< " " <<menuList[i].menuItem << " " <<menuList[i].menuPrice <<char(128)<< endl;
         }
     }
+    */
+    printCheck(menuList, dish, maxNumberOfOrders);
 }
 
 void getData(menuItemType menuList[], int& size) {
@@ -59,10 +62,27 @@ void showMenu(menuItemType menuList[], int size) {
     SetConsoleOutputCP(1252);
     cout<<"Meniu:"<<endl;
     for(int i = 0; i < size; i++) {
-        cout<<menuList[i].menuItem<< " "<<menuList[i].menuPrice<<char(128)<<endl;
+            cout<<i + 1 <<". "<<menuList[i].menuItem<< " "<<menuList[i].menuPrice<<char(128)<<endl;
     }
     cout<<endl;
 }
 
-void printCheck() {
+void printCheck(menuItemType menuList[], int dish[][], int maxNumberOfOrders) {
+    double total = 0; // Variable to store the total cost
+    //TRY TO USE JUST ONE VARIABLE INSTEAD OF TWO FOR CALCULATING THE TOTAL patikrinti
+
+    cout << "Check: " << endl;
+    for (int i = 0; i < maxNumberOfOrders; i++) {
+        if (dish[i][0] > 0) {
+            cout <<dish[i][0]<< " " <<menuList[i].menuItem << " " <<menuList[i].menuPrice <<char(128)<< endl;
+            double dishTotal = dish[i][0] * menuList[i].menuPrice;
+            total += dishTotal;
+        }
+    }
+    double tax = total * 0.21;
+    double totalWithTax = total + tax;
+
+    cout << "Suma be PVM: " << total << char(128) << endl;
+    cout << "21% PVM: " <<  tax << char(128) << endl;
+    cout << "Galutine suma: " << totalWithTax << char(128) << endl;
 }

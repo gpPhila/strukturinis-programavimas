@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <windows.h>
+#include <fstream>
 using namespace std;
 
 struct menuItemType {
@@ -9,20 +10,25 @@ struct menuItemType {
     double menuPrice;
 };
 
+struct dishOrder {
+    int dishNumber;
+    int dishQuantity;
+};
+
 void getData(menuItemType menuList[], int&size); //prototype
 void showMenu(menuItemType menuList[], int size); //prot
-void printCheck(menuItemType menuList[], int dish[][], int maxNumberOfOrders); //prot
+void printCheck(menuItemType menuList[], dishOrder dish[], int orderCount); //prot
 
-int main()
-{
-    int size = 0;
+int main() {
+
     menuItemType menuList[10];
+    int size = 0;
+    dishOrder dish[10];
+    int orderCount = 0;
+
     getData(menuList, size);
     showMenu(menuList, size);
 
-    int maxNumberOfOrders = 10;
-    int maxNumberOfPortions = 10;
-    int dish[maxNumberOfOrders][10] = {0};
     while (true) {
         int dishNumber, dishQuantity;
         cout<<"Iveskite pasirinkto(u) patiekalo numeri(us) ir kieki (atskirkite tarpu): "<<endl;
@@ -33,20 +39,15 @@ int main()
         cin>>dishQuantity;
 
         if (dishNumber > 0 && dishQuantity > 0) {
-            dish[dishNumber - 1][0] += dishQuantity;
+            dish[orderCount] = {dishNumber - 1, dishQuantity};
+            orderCount++;
         } else {
             cout << "Neteisingas patiekalo numeris arba kiekis. Bandykite dar karta." << endl;
         }
     }
     cout<<endl;
-    /*
-    for (int i = 0; i < maxNumberOfOrders; i++) {
-        if (dish[i][0] > 0) {
-            cout <<dish[i][0]<< " " <<menuList[i].menuItem << " " <<menuList[i].menuPrice <<char(128)<< endl;
-        }
-    }
-    */
-    printCheck(menuList, dish, maxNumberOfOrders);
+
+    printCheck(menuList, dish, orderCount);
 }
 
 void getData(menuItemType menuList[], int& size) {
@@ -54,7 +55,13 @@ void getData(menuItemType menuList[], int& size) {
 
     menuList[0]={"Kiausiniene", 1.45};
     menuList[1]={"Kiaulienos sonine su keptu kiausiniu", 2.45};
-    size = 2;
+    menuList[2]={"Keksiukas su vysnia", 0.99};
+    menuList[3]={"Prancuziskas skrebutis", 1.99};
+    menuList[4]={"Vaisiu salotos", 2.49};
+    menuList[5]={"Pusryciu dribsniai", 0.69};
+    menuList[6]={"Kava", 0.50};
+    menuList[7]={"Arbata", 0.75};
+    size = 8;
     //kiek size, tiek turime "patiekalu" t.y. eiluciu musu meniu
 }
 
@@ -62,27 +69,46 @@ void showMenu(menuItemType menuList[], int size) {
     SetConsoleOutputCP(1252);
     cout<<"Meniu:"<<endl;
     for(int i = 0; i < size; i++) {
-            cout<<i + 1 <<". "<<menuList[i].menuItem<< " "<<menuList[i].menuPrice<<char(128)<<endl;
+            cout<< i + 1 <<". "<<left<<setw(40)<<menuList[i].menuItem<<right<<
+            " "<<menuList[i].menuPrice<<char(128)<<endl;
     }
     cout<<endl;
 }
 
-void printCheck(menuItemType menuList[], int dish[][], int maxNumberOfOrders) {
-    double total = 0; // Variable to store the total cost
-    //TRY TO USE JUST ONE VARIABLE INSTEAD OF TWO FOR CALCULATING THE TOTAL patikrinti
+void printCheck(menuItemType menuList[], dishOrder dish[], int orderCount) {
+    double total = 0;
 
-    cout << "Check: " << endl;
-    for (int i = 0; i < maxNumberOfOrders; i++) {
-        if (dish[i][0] > 0) {
-            cout <<dish[i][0]<< " " <<menuList[i].menuItem << " " <<menuList[i].menuPrice <<char(128)<< endl;
-            double dishTotal = dish[i][0] * menuList[i].menuPrice;
-            total += dishTotal;
-        }
+    ofstream orderFile;
+    orderFile.open("order.txt");
+
+    orderFile << "Uzsakymas: " << endl;
+    orderFile << endl;
+
+    for (int i = 0; i < orderCount; i++) {
+            int dishNumber = dish[i].dishNumber;
+            int dishQuantity = dish[i].dishQuantity;
+            orderFile << dishQuantity << " x " <<left<<setw(40)<< menuList[dishNumber].menuItem << " "<<right
+                 << menuList[dishNumber].menuPrice << char(128) << endl;
+            total += dishQuantity * menuList[dishNumber].menuPrice;
     }
     double tax = total * 0.21;
     double totalWithTax = total + tax;
 
-    cout << "Suma be PVM: " << total << char(128) << endl;
-    cout << "21% PVM: " <<  tax << char(128) << endl;
-    cout << "Galutine suma: " << totalWithTax << char(128) << endl;
+    orderFile << fixed << setprecision(2);
+    orderFile << endl;
+    orderFile <<"Suma be PVM: " << total<< char(128) << endl;
+    orderFile <<"21% PVM: " <<  tax<< char(128) << endl;
+    orderFile << endl;
+    orderFile <<"Galutine suma: " << totalWithTax << char(128) << endl;
+
+    orderFile.close();
+    ifstream orderFileRead;
+    orderFileRead.open("order.txt");
+
+    string line;
+    while (getline(orderFileRead, line)) {
+        cout << line << endl; // isveda kiekviena eilute
+    }
+
+    orderFileRead.close();
 }

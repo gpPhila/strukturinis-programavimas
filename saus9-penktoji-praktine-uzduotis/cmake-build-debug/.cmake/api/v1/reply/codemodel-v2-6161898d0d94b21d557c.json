@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "saus9_penktoji_praktine_uzduotis",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "saus9_penktoji_praktine_uzduotis::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-saus9_penktoji_praktine_uzduotis-Debug-2aed76de7ced79c2d7cc.json",
+					"name" : "saus9_penktoji_praktine_uzduotis",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/s056857/Desktop/strukturinis-programavimas/saus9-penktoji-praktine-uzduotis/cmake-build-debug",
+		"source" : "C:/Users/s056857/Desktop/strukturinis-programavimas/saus9-penktoji-praktine-uzduotis"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

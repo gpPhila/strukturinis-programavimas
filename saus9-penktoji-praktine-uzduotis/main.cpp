@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ int main()
         cout<<"1. Lenteles duomenu ivedimas."<<endl;
         cout<<"2. Irasu redagavimas."<<endl;
         cout<<"3. Iseiti."<<endl;
+        cin>>pasirinkimas;
 
         switch (pasirinkimas) {
             case 1: pirmaPrograma();
@@ -42,5 +44,45 @@ void pirmaPrograma() {
             lentele[i] = new int[stulpeliai1];
         }
 
+    for (int i = 0; i < eilutes1; i++) {
+        for (int j = 0; j < stulpeliai1; j++) {
+            cout << "Iveskite lenteles elemento ["<<i<<"]["<<j<<"] reiksme:"<<endl;
+            cin >> lentele[i][j];
+        }
+    }
+    cout<<"Lenteles duomenys:"<<endl;
+    for (int i = 0; i < eilutes1; i++) {
+        for (int j = 0; j < stulpeliai1; j++) {
+        cout<<setw(3)<<lentele[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
 
+    cout<<"Kiekvienos eilutes elementu suma:"<<endl;
+    for (int i=0; i < eilutes1; i++) {
+        int eilutesSuma = 0;
+        for (int j=0; j < stulpeliai1; j++) {
+            eilutesSuma += lentele[i][j];
+        }
+        cout<<eilutesSuma;
+        cout<<endl;
+    }
+    cout<<endl;
+
+    cout<<"Kiekvieno stulpelio elementu suma:"<<endl;
+    for (int j=0; j < stulpeliai1; j++) {
+        int stulpelioSuma = 0;
+        for (int i=0; i < eilutes1; i++) {
+            stulpelioSuma += lentele[i][j];
+        }
+        cout<<stulpelioSuma<<" ";
+    }
+    cout<<endl;
+    cout<<endl;
 }
+
+    void antraPrograma() {
+
+    }
+

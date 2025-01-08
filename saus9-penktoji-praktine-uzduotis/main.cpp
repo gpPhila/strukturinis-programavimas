@@ -14,6 +14,8 @@ void pirmaPrograma(); //prot
 void antraPrograma(); //prot
 void pridetiStudentoDuomenis(studentoInfo*& studentai, int& kiekis);
 void rodytiStudentoDuomenis(studentoInfo* studentai, int size);
+void redaguotiStudentoDuomenis(studentoInfo* studentai);
+void studentoSalinimas (studentoInfo*& studentai, int& kiekis);
 
 int main()
 {
@@ -128,6 +130,22 @@ void pirmaPrograma() {
                 case 2: pridetiStudentoDuomenis(studentai, kiekis);
                 break;
 
+                case 3: if (kiekis == 0) {
+                    cout << "Nera studentu duomenu." << endl;
+                } else {
+                    redaguotiStudentoDuomenis(studentai);
+                }
+                break;
+
+                case 4: if (kiekis == 0) {
+                    cout << "Nera studentu duomenu." << endl;
+                } else {
+                    studentoSalinimas (studentai, kiekis);
+                }
+
+                case 5:
+                break;
+
                 default: cout<< endl;
             }
         }
@@ -161,5 +179,89 @@ void rodytiStudentoDuomenis (studentoInfo* studentai, int size) {
         cout<< i+1 <<". "<<studentai[i].vardas<<" "<<studentai[i].pavarde<<
             " "<<studentai[i].studentoID<<" "<<studentai[i].studentoTelNumeris<<endl;
     }
+}
+
+void redaguotiStudentoDuomenis(studentoInfo* studentai) {
+    cout<<"Iveskite studento ID: ";
+    int studentoNum;
+    cin>>studentoNum;
+
+    int studentoID = studentoNum - 1;
+
+    cout<<"Redaguojamo studento duomenys:"<<endl;
+    cout<< studentoNum <<". "<<studentai[studentoID].vardas<<" "<<studentai[studentoID].pavarde<<
+            " "<<studentai[studentoID].studentoID<<" "<<studentai[studentoID].studentoTelNumeris<<endl;
+
+    int pasirinkimas;
+    while (pasirinkimas != 5) {
+        cout<<"Pasirinkite, ka norite redaguoti:"<<endl;
+        cout<<"1. Studento vardas."<<endl;
+        cout<<"2. Studento pavarde."<<endl;
+        cout<<"3. Studento ID."<<endl;
+        cout<<"4. Studento tel. numeris."<<endl;
+        cout<<"5. Atsaukti."<<endl;
+        cin>>pasirinkimas;
+
+        switch (pasirinkimas) {
+            case 1: cout<<"Iveskite studento varda: ";
+            cin>>studentai[studentoID].vardas;
+            break;
+
+            case 2: cout<<"Iveskite studento pavarde: ";
+            cin>>studentai[studentoID].pavarde;
+            break;
+
+            case 3: cout<<"Iveskite studento ID: ";
+            cin>>studentai[studentoID].studentoID;
+            break;
+
+            case 4: cout<<"Iveskite studento tel. numeri: ";
+            cin>>studentai[studentoID].studentoTelNumeris;
+            break;
+
+            case 5: cout<<"Veiksmas atsauktas.";
+            break;
+
+            default: cout<<"Tokio pasirinkimo nera."<<endl;
+            cout<<endl;
+        }
+        cout<<endl;
+    }
+}
+
+void studentoSalinimas (studentoInfo*& studentai, int& kiekis) {
+    cout<<"Iveskite studento ID, kurio duomenys bus pasalinti: ";
+    int studentoNum;
+    cin>>studentoNum;
+
+    int studentoID = studentoNum - 1;
+    cout<<"Studento duomenys:"<<endl;
+    cout<< studentoNum <<". "<<studentai[studentoID].vardas<<" "<<studentai[studentoID].pavarde<<
+            " "<<studentai[studentoID].studentoID<<" "<<studentai[studentoID].studentoTelNumeris<<endl;
+
+    cout<<"Ar tikrai norite pasalinti studento duomenys? (taip/ne)"<<endl;
+    string sprendimas;
+    cin>>sprendimas;
+
+    if (sprendimas == "taip") {
+        cout<<"Studento duomenys buvo pasalinti."<<endl;
+
+        studentoInfo* naujiStudentai = new studentoInfo[kiekis - 1];
+        for (int i = 0, j = 0; i < kiekis; i++) {
+            if (i != studentoID) {
+                naujiStudentai[j++] = studentai[i];
+            }
+        }
+
+        delete[] studentai;
+        studentai = naujiStudentai;
+        kiekis--;
+
+    } else if (sprendimas == "ne") {
+        cout<<"Jus pasirinkote nesalinti studento duomenu."<<endl;
+    } else {
+        cout<<"Tokio pasirinkimo nera."<<endl;
+    }
+    cout<<endl;
 }
 

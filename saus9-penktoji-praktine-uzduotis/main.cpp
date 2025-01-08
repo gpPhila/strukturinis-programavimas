@@ -142,7 +142,8 @@ void pirmaPrograma() {
                 } else {
                     studentoSalinimas (studentai, kiekis);
                 }
-
+                break;
+                
                 case 5:
                 break;
 
